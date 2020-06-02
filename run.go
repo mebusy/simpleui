@@ -66,9 +66,16 @@ func Run(customView CustomViewIF) {
 	if err := gl.Init(); err != nil {
 		log.Fatalln(err)
 	}
+
+    _glwindow = window 
+
 	gl.Enable(gl.TEXTURE_2D)
 
 	// run director
 	director := NewDirector(window, audio)
 	director.Start( customView)
+}
+var _glwindow *glfw.Window
+func GetWindows() *glfw.Window {
+    return  _glwindow
 }

@@ -30,6 +30,7 @@ func NewDirector(window *glfw.Window, audio *Audio) *Director {
 	return &director
 }
 
+
 func (d *Director) SetTitle(title string) {
 	d.window.SetTitle(title)
 }

@@ -9,7 +9,6 @@ type View interface {
 
 type CustomViewIF interface {
 	View
-	SetGLWindow(window *glfw.Window)
 	SetAudioDevice(*Audio)
 	OnKey(glfw.Key)
 	TextureBuff() []uint8

@@ -76,6 +76,6 @@ func Run(customView CustomViewIF) {
 	director.Start( customView)
 }
 var _glwindow *glfw.Window
-func GetWindows() *glfw.Window {
+func GetWindow() *glfw.Window {
     return  _glwindow
 }

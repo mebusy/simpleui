@@ -25,7 +25,6 @@ func (self *MyView) Update(t, dt float64) {
     self.screenImage.Set( 11,11, color.White )
 }
 
-func (self *MyView) SetGLWindow(window *glfw.Window) {}
 func (self *MyView) SetAudioDevice(audio *simpleui.Audio) {}
 func (self *MyView) OnKey(key glfw.Key) {}
 func (self *MyView) TextureBuff() []uint8 {

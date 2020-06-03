@@ -31,7 +31,7 @@ func (self *MyView) Update(t, dt float64) {
 
      graph.DrawLine( self.screenImage,  -10, -20 , 100,160,  graph.COLOR_RED )
      graph.DrawLine( self.screenImage,  100, -20 , 0,100,  graph.COLOR_GREEN )
-     graph.DrawLine( self.screenImage,  100, 120 , 200,120,  color.Black )
+     graph.DrawLine( self.screenImage,14.358431036073966,32.12406230496519,24.339200799863534,31.504195446499647,  color.Black )
 
 }
 

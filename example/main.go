@@ -5,6 +5,7 @@ import (
     "github.com/go-gl/glfw/v3.1/glfw"
     "image"
     "image/color"
+    "github.com/mebusy/simpleui/graph"
     // "image/draw"
 )
 
@@ -21,6 +22,9 @@ func NewView( w,h int) *MyView {
 func (self *MyView) Enter() {}
 func (self *MyView) Exit() {}
 func (self *MyView) Update(t, dt float64) {
+
+    graph.FillRect( self.screenImage, self.screenImage.Bounds() , color.White    )
+
     self.screenImage.Set( 10,10, color.White )
     self.screenImage.Set( 11,11, color.White )
 }

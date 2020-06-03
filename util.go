@@ -200,15 +200,3 @@ func animation(frames []image.Image) {
     }
 }
 
-func CopyStride( dst_buf []uint8, dst_stride int ,  src_buf []uint8, src_stride int , nBytePerLine int , nLines int ) {
-    dst := 0
-    src := 0
-    for h:=0; h< nLines; h++ {
-        copy( dst_buf[dst:dst+nBytePerLine],  src_buf[src:src+nBytePerLine ] )
-        dst += dst_stride
-        src += src_stride
-    }
-}
-
-
-

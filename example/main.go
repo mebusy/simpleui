@@ -23,10 +23,16 @@ func (self *MyView) Enter() {}
 func (self *MyView) Exit() {}
 func (self *MyView) Update(t, dt float64) {
 
-    graph.FillRect( self.screenImage, self.screenImage.Bounds() , color.White    )
+    graph.FillRect( self.screenImage, self.screenImage.Bounds() ,
+                graph.COLOR_CYAN )
 
     self.screenImage.Set( 10,10, color.White )
     self.screenImage.Set( 11,11, color.White )
+
+     graph.DrawLine( self.screenImage,  -10, -20 , 100,160,  graph.COLOR_RED )
+     graph.DrawLine( self.screenImage,  100, -20 , 0,100,  graph.COLOR_GREEN )
+     graph.DrawLine( self.screenImage,  100, 120 , 200,120,  color.Black )
+
 }
 
 func (self *MyView) SetAudioDevice(audio *simpleui.Audio) {}

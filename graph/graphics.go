@@ -25,7 +25,8 @@ func CopyStride( dst_buf []uint8, dst_stride int ,  src_buf []uint8, src_stride 
     }
 }
 
-func FillRect( dst *image.RGBA  , r image.Rectangle , c color.Color ) {
+func FillRect( dst draw.Image , r image.Rectangle , c color.Color ) {
     draw.Draw( dst, r, &image.Uniform{c}, image.ZP, draw.Src  )
 }
+
 

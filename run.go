@@ -47,6 +47,8 @@ func Run(customView CustomViewIF) {
 	}
 	defer audio.Stop()
 
+    _audio = audio
+
 	// initialize glfw
 	if err := glfw.Init(); err != nil {
 		log.Fatalln(err)
@@ -76,6 +78,11 @@ func Run(customView CustomViewIF) {
 	director.Start( customView)
 }
 var _glwindow *glfw.Window
+var _audio *Audio
 func GetWindow() *glfw.Window {
     return  _glwindow
+}
+
+func GetAudio() *Audio {
+    return _audio
 }

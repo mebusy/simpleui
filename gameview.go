@@ -13,7 +13,6 @@ import (
 
 type CustomViewIF interface {
     View
-    SetAudioDevice(*Audio)
     OnKey(glfw.Key)
     TextureBuff() []uint8
     Title() string
@@ -45,7 +44,6 @@ func (view *GameView) Enter() {
 
     if view.customView != nil {
         view.director.SetTitle(view.customView.Title() )
-        view.customView.SetAudioDevice(view.director.audio)
         view.customView.Enter()
     }
 

@@ -35,7 +35,6 @@ func (self *MyView) Update(t, dt float64) {
 
 }
 
-func (self *MyView) SetAudioDevice(audio *simpleui.Audio) {}
 func (self *MyView) OnKey(key glfw.Key) {}
 func (self *MyView) TextureBuff() []uint8 {
     return self.screenImage.Pix

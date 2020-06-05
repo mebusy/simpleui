@@ -43,7 +43,7 @@ func ReadKey(window *glfw.Window, key glfw.Key) bool {
 }
 
 // glfw.MouseButtonLeft glfw.MouseButtonRight  glfw.MouseButtonMiddle
-func ReadMouse(window *glfw.Window, button glfw.MouseButton ) bool {
+func IsMouseKeyHold(window *glfw.Window, button glfw.MouseButton ) bool {
     return window.GetMouseButton(button) == glfw.Press
 }
 func GetCursorPosInWindow( window *glfw.Window  ) (float64, float64) {

@@ -38,11 +38,14 @@ func HomeDir() string {
     return homeDir
 }
 
-
 func ReadKey(window *glfw.Window, key glfw.Key) bool {
     return window.GetKey(key) == glfw.Press
 }
 
+// glfw.MouseButtonLeft glfw.MouseButtonRight  glfw.MouseButtonMiddle
+func ReadMouse(window *glfw.Window, button glfw.MouseButton ) bool {
+    return window.GetMouseButton(button) == glfw.Press
+}
 
 func readJoystick(joy glfw.Joystick, turbo bool) [8]bool {
     var result [8]bool

@@ -46,6 +46,25 @@ func ReadKey(window *glfw.Window, key glfw.Key) bool {
 func ReadMouse(window *glfw.Window, button glfw.MouseButton ) bool {
     return window.GetMouseButton(button) == glfw.Press
 }
+func GetCursorPosInWindow( window *glfw.Window  ) (float64, float64) {
+    w,h := window.GetSize()
+    mx, my := window.GetCursorPos()
+    if mx < 0 {
+        mx = 0
+    }
+    if my < 0 {
+        my = 0
+    }
+    if mx >= float64(w) {
+        mx = float64(w) -0.01
+    }
+    if my >= float64(h) {
+        my = float64(h) -0.01
+    }
+    return mx, my
+}
+
+
 
 func readJoystick(joy glfw.Joystick, turbo bool) [8]bool {
     var result [8]bool

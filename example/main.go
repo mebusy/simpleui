@@ -45,7 +45,7 @@ func (self *MyView) Update(t, dt float64) {
     graph.DrawLine( self.screenImage,   105,160, -5, -20 , graph.COLOR_BLUE )
     graph.DrawLine( self.screenImage,   5,100, 105, -20 , graph.COLOR_YELLOW )
 
-    graph.DrawLine( self.screenImage,14.358431036073966,32.12406230496519,24.339200799863534,31.504195446499647,  color.Black )
+    graph.DrawLine( self.screenImage,14,32,24,31,  color.Black )
 
     graph.FillTriangle(self.screenImage, graph.NewTriangle(test_pts[0],test_pts[1],test_pts[2],test_pts[3],test_pts[4],test_pts[5])  , graph.COLOR_GREEN)
 

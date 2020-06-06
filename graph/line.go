@@ -42,7 +42,7 @@ func drawLineH( dst draw.Image, x1,  x2,  y1 int, color color.Color ) {
     }
 }
 
-func DrawLine( dst draw.Image, _x1,  _y1, _x2, _y2 float64 , color color.Color) {
+func DrawLine( dst draw.Image, x1,  y1, x2, y2 int , color color.Color) {
     var x        int
     var y        int
     var dx       int
@@ -53,10 +53,12 @@ func DrawLine( dst draw.Image, _x1,  _y1, _x2, _y2 float64 , color color.Color) 
     var b        int
     var diff     int
 
+    /*
     x1 := int(_x1)
     y1 := int(_y1)
     x2 := int(_x2)
     y2 := int(_y2)
+    */
 
     if x1 == x2 {
         drawLineV( dst, y1, y2 , x1, color)

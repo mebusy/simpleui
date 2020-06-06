@@ -91,3 +91,11 @@ func FillTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
 }
 
 
+func DrawTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
+    v1 := triangle.GetVert(0)
+    v2 := triangle.GetVert(1)
+    v3 := triangle.GetVert(2)
+    DrawLine( dst, v1.x,v1.y, v2.x,v2.y, color  )
+    DrawLine( dst, v2.x,v2.y, v3.x,v3.y, color  )
+    DrawLine( dst, v3.x,v3.y, v1.x,v1.y, color  )
+}

@@ -62,7 +62,7 @@ func fillTopFlatTriangle( dst draw.Image,
     }
 }
 
-func DrawTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
+func FillTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
    /* at first sort the three vertices by y-coordinate ascending so v1 is the topmost vertice */
    triangle.SortByY()
 

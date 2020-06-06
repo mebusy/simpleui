@@ -47,6 +47,7 @@ func DrawLine( dst draw.Image, _x1,  _y1, _x2, _y2 float64 , color color.Color) 
     var y        int
     var dx       int
     var dy       int
+    var dx_pos   int
     var dy_pos   int
     var a        int
     var b        int
@@ -63,37 +64,33 @@ func DrawLine( dst draw.Image, _x1,  _y1, _x2, _y2 float64 , color color.Color) 
     }
     if y1 == y2 {
         drawLineH( dst,x1, x2, y1, color)
-        return ;
+        return
     }
 
-    // fixed x,y on left-side
-    if x1 < x2 {
-        x = x1
-        y = y1
-        dx = x2 - x1
-        dy = y2 - y1
-        dy_pos = int(math.Abs(float64(dy)))
-    } else {
-        x = x2
-        y = y2
-        dx = x1 - x2
-        dy = y1 - y2
-        dy_pos = int(math.Abs(float64(dy)))
-    }
+    x = x1
+    y = y1
+    dx = x2 - x1
+    dy = y2 - y1
+    dx_pos = int(math.Abs(float64(dx)))
+    dy_pos = int(math.Abs(float64(dy)))
 
     a = 0
     b = 0
 
     for {
-        if a > dx {
+        if a > dx_pos {
             return
         }
         if b > dy_pos {
             return
         }
 
-        if dy < 0 {
-            dst.Set( x+a, y-b , color);
+        if dx < 0 && dy < 0 {
+            dst.Set( x-a, y-b , color)
+        } else if dx > 0 && dy < 0 {
+            dst.Set( x+a, y-b , color)
+        } else if dx < 0 && dy > 0 {
+            dst.Set( x-a, y+b , color)
         } else {
             dst.Set( x+a, y+b, color )
         }
@@ -103,7 +100,7 @@ func DrawLine( dst draw.Image, _x1,  _y1, _x2, _y2 float64 , color color.Color) 
             diff = diff + dy_pos
         } else {
             b = b + 1
-            diff = diff - dx
+            diff = diff - dx_pos
         }
 
     }

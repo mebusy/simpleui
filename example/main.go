@@ -49,6 +49,11 @@ func (self *MyView) Update(t, dt float64) {
 
     graph.DrawTriangle(self.screenImage, graph.NewTriangle(test_pts[0],test_pts[1],test_pts[2],test_pts[3],test_pts[4],test_pts[5])  , graph.COLOR_GREEN)
 
+    graph.DrawRectangle( self.screenImage, 10, 200,  10+50, 200-80, graph.COLOR_RED )
+
+    graph.FillCircle( self.screenImage, 290, 50, 30, graph.COLOR_YELLOW )
+    graph.DrawCircle( self.screenImage, 300, 50, 30, graph.COLOR_BLUE )
+
 }
 
 func (self *MyView) OnKey(key glfw.Key) {}

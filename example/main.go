@@ -7,6 +7,9 @@ import (
     "image/color"
     "github.com/mebusy/simpleui/graph"
     // "image/draw"
+    "math/rand"
+    "log"
+    "time"
 )
 
 type MyView struct {
@@ -19,7 +22,14 @@ func NewView( w,h int) *MyView {
     return view
 }
 
-func (self *MyView) Enter() {}
+var test_pts [6]int
+func (self *MyView) Enter() {
+    rand.Seed( time.Now().Unix() )
+    for i:=0; i< len(test_pts); i++ {
+        test_pts[i] = rand.Intn(200)
+    }
+    log.Println( "draw triangle:" , test_pts )
+}
 func (self *MyView) Exit() {}
 func (self *MyView) Update(t, dt float64) {
 
@@ -29,13 +39,15 @@ func (self *MyView) Update(t, dt float64) {
     self.screenImage.Set( 10,10, color.White )
     self.screenImage.Set( 11,11, color.White )
 
-     graph.DrawLine( self.screenImage,  -10, -20 , 100,160,  graph.COLOR_RED )
-     graph.DrawLine( self.screenImage,  100, -20 , 0,100,  graph.COLOR_GREEN )
+    graph.DrawLine( self.screenImage,  -10, -20 , 100,160,  graph.COLOR_RED )
+    graph.DrawLine( self.screenImage,  100, -20 , 0,100,  graph.COLOR_GREEN )
 
-     graph.DrawLine( self.screenImage,   105,160, -5, -20 , graph.COLOR_BLUE )
-     graph.DrawLine( self.screenImage,   5,100, 105, -20 , graph.COLOR_YELLOW )
+    graph.DrawLine( self.screenImage,   105,160, -5, -20 , graph.COLOR_BLUE )
+    graph.DrawLine( self.screenImage,   5,100, 105, -20 , graph.COLOR_YELLOW )
 
-     graph.DrawLine( self.screenImage,14.358431036073966,32.12406230496519,24.339200799863534,31.504195446499647,  color.Black )
+    graph.DrawLine( self.screenImage,14.358431036073966,32.12406230496519,24.339200799863534,31.504195446499647,  color.Black )
+
+    graph.DrawTriangle(self.screenImage, graph.NewTriangle(test_pts[0],test_pts[1],test_pts[2],test_pts[3],test_pts[4],test_pts[5])  , graph.COLOR_GREEN)
 
 }
 

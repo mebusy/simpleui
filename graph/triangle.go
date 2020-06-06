@@ -26,6 +26,11 @@ func (self *Triangle) GetVert( i int ) Point2D {
     return self.verts[i]
 }
 
+func (self *Triangle) SetVert( i int, x,y int ) {
+    self.verts[i].x = x
+    self.verts[i].y = y
+}
+
 func NewTriangle(x1,y1,x2,y2,x3,y3 int ) Triangle  {
     return Triangle{ []Point2D { {x1,y1},{x2,y2},{x3,y3}  } }
 }

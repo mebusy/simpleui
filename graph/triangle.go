@@ -13,26 +13,26 @@ type Point2D struct {
     x,y int
 }
 
-type Triangle struct {
+type sTriangle struct {
     verts []Point2D
 }
 
-func (self *Triangle) SortByY() {
+func (self *sTriangle) SortByY() {
     sort.SliceStable(self.verts, func(i, j int) bool {
         return self.verts[i].y < self.verts[j].y
     })
 }
-func (self *Triangle) GetVert( i int ) Point2D {
+func (self *sTriangle) GetVert( i int ) Point2D {
     return self.verts[i]
 }
 
-func (self *Triangle) SetVert( i int, x,y int ) {
+func (self *sTriangle) SetVert( i int, x,y int ) {
     self.verts[i].x = x
     self.verts[i].y = y
 }
 
-func NewTriangle(x1,y1,x2,y2,x3,y3 int ) Triangle  {
-    return Triangle{ []Point2D { {x1,y1},{x2,y2},{x3,y3}  } }
+func NewTriangle(x1,y1,x2,y2,x3,y3 int ) sTriangle  {
+    return sTriangle{ []Point2D { {x1,y1},{x2,y2},{x3,y3}  } }
 }
 
 func fillBottomFlatTriangle( dst draw.Image,
@@ -67,7 +67,7 @@ func fillTopFlatTriangle( dst draw.Image,
     }
 }
 
-func FillTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
+func FillTriangle( dst draw.Image, triangle sTriangle,  color color.Color ) {
    /* at first sort the three vertices by y-coordinate ascending so v1 is the topmost vertice */
    triangle.SortByY()
 
@@ -91,7 +91,7 @@ func FillTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
 }
 
 
-func DrawTriangle( dst draw.Image, triangle Triangle,  color color.Color ) {
+func DrawTriangle( dst draw.Image, triangle sTriangle,  color color.Color ) {
     v1 := triangle.GetVert(0)
     v2 := triangle.GetVert(1)
     v3 := triangle.GetVert(2)

@@ -8,11 +8,21 @@ import (
 
 var (
     COLOR_RED = color.RGBA{255,0,0,255}
-    COLOR_GREEN = color.RGBA{0,255,0,255}
+    COLOR_LIME = color.RGBA{0,255,0,255}
     COLOR_BLUE = color.RGBA{0,0,255,255}
     COLOR_YELLOW = color.RGBA{255,255,0,255}
     COLOR_CYAN = color.RGBA{0,255,255,255}
-    COLOR_PURPLE = color.RGBA{255,0,255,255}
+    COLOR_MAGENTA = color.RGBA{255,0,255,255}
+
+    COLOR_SILVER = color.RGBA{192,192,192,255}
+    COLOR_GRAY = color.RGBA{128,128,128,255}
+    COLOR_MAROON = color.RGBA{128,0,0,255}
+    COLOR_OLIVE = color.RGBA{128,128,0,255}
+
+    COLOR_GREEN = color.RGBA{0,128,0,255}
+    COLOR_PURPLE = color.RGBA{128,0,128,255}
+    COLOR_TEAL = color.RGBA{0,128,128,255}
+    COLOR_NAVY = color.RGBA{0,0,128,255}
 )
 
 func CopyStride( dst_buf []uint8, dst_stride int ,  src_buf []uint8, src_stride int , nBytePerLine int , nLines int ) {

@@ -65,9 +65,11 @@ func (self *MyView) Title() string {
 }
 
 
+var screenW, screenH, scale int
+
 func main() {
-    w,h,scale := 320,240,2
-    view := NewView(w,h)
-    simpleui.SetWindow( w,h, scale  )
+    screenW,screenH,scale = 320,240,2
+    view := NewView(screenW,screenH)
+    simpleui.SetWindow( screenW,screenH , scale  )
     simpleui.Run( view )
 }

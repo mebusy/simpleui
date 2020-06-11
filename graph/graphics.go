@@ -23,6 +23,10 @@ var (
     COLOR_PURPLE = color.RGBA{128,0,128,255}
     COLOR_TEAL = color.RGBA{0,128,128,255}
     COLOR_NAVY = color.RGBA{0,0,128,255}
+
+    COLOR_DARKGREEN = color.RGBA{1,50,32,255}
+    COLOR_DARKGRAY = color.RGBA{169,169,169,255}
+    COLOR_DIMGRAY = color.RGBA{105,105,105,255}
 )
 
 func CopyStride( dst_buf []uint8, dst_stride int ,  src_buf []uint8, src_stride int , nBytePerLine int , nLines int ) {

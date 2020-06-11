@@ -7,6 +7,9 @@ import (
 )
 
 var (
+    COLOR_WHITE = color.RGBA{255,255,255,255}
+    COLOR_BLACK = color.RGBA{0,0,0,255}
+    
     COLOR_RED = color.RGBA{255,0,0,255}
     COLOR_LIME = color.RGBA{0,255,0,255}
     COLOR_BLUE = color.RGBA{0,0,255,255}

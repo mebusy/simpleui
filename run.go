@@ -18,13 +18,13 @@ var (
 
 func init() {
 	// we need a parallel OS thread to avoid audio stuttering
-	runtime.GOMAXPROCS(2)
+	// runtime.GOMAXPROCS(2)  // now its go's default behavior
 
 	// we need to keep OpenGL calls on a single thread
 	runtime.LockOSThread()
 }
 
-func SetWindow(_width, _height, _scale int ) {
+func SetWindow(_width, _height, _scale int) {
 	if _width > 0 {
 		width = _width
 	}
@@ -37,7 +37,6 @@ func SetWindow(_width, _height, _scale int ) {
 }
 
 func Run(customView CustomViewIF) {
-	// initialize audio
 	portaudio.Initialize()
 	defer portaudio.Terminate()
 
@@ -47,7 +46,7 @@ func Run(customView CustomViewIF) {
 	}
 	defer audio.Stop()
 
-    _audio = audio
+	_audio = audio
 
 	// initialize glfw
 	if err := glfw.Init(); err != nil {
@@ -69,20 +68,22 @@ func Run(customView CustomViewIF) {
 		log.Fatalln(err)
 	}
 
-    _glwindow = window 
+	_glwindow = window
 
 	gl.Enable(gl.TEXTURE_2D)
 
 	// run director
 	director := NewDirector(window, audio)
-	director.Start( customView)
+	director.Start(customView)
 }
+
 var _glwindow *glfw.Window
 var _audio *Audio
+
 func GetWindow() *glfw.Window {
-    return  _glwindow
+	return _glwindow
 }
 
 func GetAudio() *Audio {
-    return _audio
+	return _audio
 }

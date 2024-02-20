@@ -1,6 +1,10 @@
 package simpleui
 
-import "github.com/gordonklaus/portaudio"
+import (
+	"github.com/gordonklaus/portaudio"
+	"log"
+	"time"
+)
 
 type Audio struct {
 	stream         *portaudio.Stream
@@ -11,7 +15,6 @@ type Audio struct {
 
 func NewAudio() *Audio {
 	a := Audio{}
-	a.channel = make(chan float32, 44100)
 	return &a
 }
 
@@ -20,7 +23,15 @@ func (a *Audio) Start() error {
 	if err != nil {
 		return err
 	}
+	// HighLatencyParameters are mono in, stereo out (if supported),
+	// high latency, the smaller of the default sample rates of the two devices, and FramesPerBufferUnspecified. One of the devices may be nil.
 	parameters := portaudio.HighLatencyParameters(nil, host.DefaultOutputDevice)
+
+	delay := time.Second / 5
+	bufLen := int(parameters.SampleRate * delay.Seconds())
+
+	a.channel = make(chan float32, bufLen)
+
 	stream, err := portaudio.OpenStream(parameters, a.Callback)
 	if err != nil {
 		return err
@@ -31,6 +42,8 @@ func (a *Audio) Start() error {
 	a.stream = stream
 	a.sampleRate = parameters.SampleRate
 	a.outputChannels = parameters.Output.Channels
+
+	log.Println("Audio started, sampleRate:", a.sampleRate, "outputChannels:", a.outputChannels)
 	return nil
 }
 

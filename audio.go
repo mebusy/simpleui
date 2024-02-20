@@ -51,6 +51,7 @@ func (a *Audio) Stop() error {
 	return a.stream.Close()
 }
 
+// `Callback` invoked in a separate fixed goroutine
 func (a *Audio) Callback(out []float32) {
 	var output float32
 	for i := range out {
